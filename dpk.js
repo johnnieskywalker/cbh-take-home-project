@@ -6,7 +6,7 @@ exports.deterministicPartitionKey = (event) => {
     return TRIVIAL_PARTITION_KEY;
   }
 
-  let candidate = getPartitionKeyCandidate(event);
+  let candidate = initPartitionKeyCandidate(event);
 
   if (typeof candidate !== "string") {
     candidate = JSON.stringify(candidate);
@@ -18,7 +18,7 @@ exports.deterministicPartitionKey = (event) => {
 
   return candidate;
 
-  function getPartitionKeyCandidate(event) {
+  function initPartitionKeyCandidate(event) {
     return event.partitionKey || crypto.createHash('sha3-512').update(JSON.stringify(event)).digest('hex');
   }
 
