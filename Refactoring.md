@@ -14,3 +14,4 @@ You will be graded on the exhaustiveness and quality of your unit tests, the dep
 - Used condition (`? :`) to simplity typecheck and the return statement
 - Reduced amount of if statements
 - Extracted functions with more descriptive names
+- Kept attention to make code top-down readable, with more general functions at the top and more specific functions at the bottom
